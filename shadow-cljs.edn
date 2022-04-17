@@ -1,0 +1,24 @@
+;; shadow-cljs configuration
+{
+ :deps
+ true
+
+ :nrepl
+ {:port       10080
+  :middleware []}
+
+ :dev-http
+ {10089 "dist"}
+
+ :dependencies
+ []
+
+ :builds
+ {:browser {:target           :browser
+            :compiler-options {:warnings-as-errors true}
+            :output-dir       "./dist/js"
+            :asset-path       "/js"
+            :modules {:main {:entries [org.msync.tfjs.core]
+                             :init-fn org.msync.tfjs.core/init}}
+            :build-hooks      [(shadow.cljs.build-report/hook {:output-to "build-report.html"})]
+            :dev              {:compiler-options {:closure-defines {org.msync.tfjs.core/trace? true}}}}}}
