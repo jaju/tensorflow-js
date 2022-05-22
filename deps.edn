@@ -2,11 +2,11 @@
  :paths   ["src/gen" "src/js" "src/cljs"]
 
  :deps    {org.clojure/clojure       {:mvn/version "1.11.1"}
-           org.clojure/clojurescript {:mvn/version "1.11.4"}
+           org.clojure/clojurescript {:mvn/version "1.11.51"}
            funcool/promesa           {:mvn/version "8.0.450"}
            cljs-bean/cljs-bean       {:mvn/version "1.8.0"}}
 
  :aliases {:dev
-           {:extra-deps {thheller/shadow-cljs {:mvn/version "2.18.0"}}
+           {:extra-deps {thheller/shadow-cljs {:mvn/version "2.19.0"}}
             :main-opts  ["-m" "shadow.cljs.devtools.cli"]}}
  }

@@ -5,14 +5,14 @@
 
 (defonce p-model (delay (.load toxicity)))
 
-(defn ^:export toxic?
-  [sentence] (p/then
-               @p-model
-               (fn [model]
-                 (p/then
-                   (.classify model #js [sentence])
-                   (fn [predictions]
-                     (js/console.log (js/JSON.stringify predictions nil 2)))))))
+(defn ^:export toxic? [sentence]
+  (p/then
+    @p-model
+    (fn [model]
+      (p/then
+        (.classify model #js [sentence])
+        (fn [predictions]
+          (js/console.log (js/JSON.stringify predictions nil 2)))))))
 
 (comment
   (toxic? "You are a poopy head!"))

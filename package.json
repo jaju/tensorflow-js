@@ -9,10 +9,10 @@
   "author": "Ravindra R. Jaju",
   "license": "ISC",
   "devDependencies": {
-    "shadow-cljs": "^2.18.0"
+    "shadow-cljs": "^2.19.0"
   },
   "dependencies": {
     "@tensorflow-models/toxicity": "^1.2.2",
-    "@tensorflow/tfjs": "^3.15.0"
+    "@tensorflow/tfjs": "^3.18.0"
   }
 }
