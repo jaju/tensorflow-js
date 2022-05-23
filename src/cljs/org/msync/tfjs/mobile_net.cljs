@@ -1,24 +1,24 @@
-(ns org.msync.tfjs.toxicity
+(ns org.msync.tfjs.mobile-net
   (:require ["@tensorflow/tfjs" :as tf]
-            ["@tensorflow-models/toxicity" :as toxicity]
+            ["@tensorflow-models/mobilenet" :as mb]
             [promesa.core :as p]))
 
-(defonce p-model (delay (.load toxicity)))
 
-(defn ^:export toxic? [sentence cb]
+(defonce i-model (delay (.load mb)))
+
+(defn ^:export classify [img cb]
   (p/then
-    @p-model
+    @i-model
     (fn [model]
       (p/then
-        (.classify model #js [sentence])
+        (.classify model img)
         (fn [predictions]
           (cb predictions)
           (js/console.log (js/JSON.stringify predictions nil 2)))))))
 
 (comment
+  (def img-el (js/document.getElementById "img"))
   (def response (atom nil))
   (defn record-response [predictions]
     (reset! response (js->clj predictions :keywordize-keys true)))
-  (toxic? "You are a poopy head!" record-response)
-  (toxic? "Marwadis are intelligent!" record-response)
-  @response)
+  (classify img-el record-response))
