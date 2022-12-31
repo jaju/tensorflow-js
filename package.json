@@ -9,11 +9,11 @@
   "author": "Ravindra R. Jaju",
   "license": "ISC",
   "devDependencies": {
-    "shadow-cljs": "^2.19.0"
+    "shadow-cljs": "^2.20.16"
   },
   "dependencies": {
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow-models/toxicity": "^1.2.2",
-    "@tensorflow/tfjs": "^3.18.0"
+    "@tensorflow/tfjs": "^4.1.0"
   }
 }

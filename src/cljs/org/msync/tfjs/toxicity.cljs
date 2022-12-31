@@ -11,13 +11,12 @@
     (fn [model]
       (p/then
         (.classify model #js [sentence])
-        (fn [predictions]
-          (cb predictions)
-          (js/console.log (js/JSON.stringify predictions nil 2)))))))
+        cb))))
 
 (comment
   (def response (atom nil))
   (defn record-response [predictions]
+    (js/console.log (js/JSON.stringify predictions nil 2))
     (reset! response (js->clj predictions :keywordize-keys true)))
   (toxic? "You are a poopy head!" record-response)
   (toxic? "Marwadis are intelligent!" record-response)
